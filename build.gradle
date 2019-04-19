@@ -1,0 +1,31 @@
+apply plugin: 'java'
+version = '1.0'
+archivesBaseName = 'mongoHelloWorld'
+
+jar {
+    manifest {
+        attributes 'Implementation-Title': 'MongoHelloWorld',
+                   'Implementation-Version': version
+    }
+}
+
+repositories {
+    flatDir {
+        dirs 'Lib'
+    }
+}
+
+dependencies {
+    compile  name: 'mongo-java-driver-3.8.2'
+    compile  name: 'miglayout-4.0'
+    compile  name: 'miglayout-4.0-swing'
+}
+
+
+uploadArchives {
+    repositories   {
+        flatDir {
+            dirs 'out'
+        }
+    }
+}
